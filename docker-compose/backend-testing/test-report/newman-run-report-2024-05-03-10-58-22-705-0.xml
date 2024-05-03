@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="postmanForTest" tests="1" time="0.092">
+  <testsuite name="get_metchant" id="7f86103a-6aec-4a30-9c17-854946781a2e" timestamp="2024-05-03T10:58:22.465Z" tests="4" failures="0" errors="0" time="0.092">
+    <testcase name="Status code is 200" time="0.092" classname="PostmanForTest"/>
+    <testcase name="ตรวจสอบว่าผลลัพธืมีชื่อ 'name11'" time="0.092" classname="PostmanForTest"/>
+    <testcase name="ตรวจสอบว่าผลลัพธืมีชื่อ 'name22'" time="0.092" classname="PostmanForTest"/>
+    <testcase name="ตรวจสอบว่าผลลัพธืมีชื่อ 'name33'" time="0.092" classname="PostmanForTest"/>
+  </testsuite>
+</testsuites>
