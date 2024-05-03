@@ -40,9 +40,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "backend_server:3000",
+					"raw": "backend:3000",
 					"host": [
-						"backend_server"
+						"backend"
 					],
 					"port": "3000"
 				}
