@@ -10,8 +10,14 @@ run_back:
 run_front:
 	docker compose up frontend -d
 
+run_newman:
+	docker compose up backend_test -d
+
 start_all:
 	docker compose up -d --build
 
 down:
 	docker compose down
+
+newman:
+	newman run api-testing/collections/postmanForTest.postman_collection.json
