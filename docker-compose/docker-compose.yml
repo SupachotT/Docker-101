@@ -8,6 +8,7 @@ services:
     container_name: nginx-demo
     ports:
       - 7777:80
+
 # PostgresDB
   db:
     image: postgres-demo
@@ -33,6 +34,8 @@ services:
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
+    depends_on:
+      - db
 
   frontend:
     image: frontend:1.0
@@ -42,3 +45,5 @@ services:
     container_name: frontend-demo
     ports:
       - 8000:80
+    depends_on:
+      - backend
