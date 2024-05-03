@@ -49,7 +49,6 @@ services:
       timeout: 5s
       retries: 5
       start_period: 5s
-        
 
   frontend:
     image: supachott/demo-frontend_image:1.0
@@ -62,3 +61,13 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+  
+  backend_test:
+    image: supachott/demo-backend-testing_image:1.0
+    build: 
+      context: ./backend-testing
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend-testing/test-report:/etc/newman/newman
+    depends_on:
+      - backend
