@@ -14,7 +14,7 @@ run_newman:
 	docker compose up backend_test -d
 
 start_all:
-	docker compose up -d --build
+	docker compose up -d
 
 down:
 	docker compose down
