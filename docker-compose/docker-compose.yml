@@ -11,7 +11,7 @@ services:
 
 # PostgresDB
   db:
-    image: postgres-demo
+    image: supachott/demo-postgres_image:1.0
     build:
       context: postgres
       dockerfile: Dockerfile
@@ -28,7 +28,7 @@ services:
       start_period: 5s
 
   backend:
-    image: backend:1.0
+    image: supachott/demo-backend_image:1.0
     build:
       context: backend
       dockerfile: Dockerfile
@@ -52,7 +52,7 @@ services:
         
 
   frontend:
-    image: frontend:1.0
+    image: supachott/demo-frontend_image:1.0
     build:
       context: frontend
       dockerfile: Dockerfile
