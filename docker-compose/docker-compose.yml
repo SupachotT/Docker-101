@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web_server:
+  web:
     image: supachott/demo-nginx_image:2.0
     build:
       context: ./nginx
@@ -10,7 +10,7 @@ services:
       - 7777:80
 
 # PostgresDB
-  db_server:
+  db:
     image: supachott/demo-postgres_image:1.0
     build:
       context: postgres
@@ -27,7 +27,7 @@ services:
       retries: 5
       start_period: 5s
 
-  backend_server:
+  backend:
     image: supachott/demo-backend_image:1.0
     build:
       context: backend
@@ -41,7 +41,7 @@ services:
       DB_USER: postgres
       DB_PASSWORD: postgres
     depends_on:
-      db_server:
+      db:
         condition: service_healthy
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
@@ -50,7 +50,7 @@ services:
       retries: 5
       start_period: 5s
 
-  frontend_server:
+  frontend:
     image: supachott/demo-frontend_image:1.0
     build:
       context: frontend
@@ -59,15 +59,15 @@ services:
     ports:
       - 8000:80
     depends_on:
-      backend_server:
+      backend:
         condition: service_healthy
-  
+
   backend_test:
     image: supachott/demo-backend-testing_image:1.0
-    build: 
+    build:
       context: ./backend-testing
       dockerfile: Dockerfile
     volumes:
       - ./backend-testing/test-report:/etc/newman/newman
     depends_on:
-      - backend_server
+      - backend
